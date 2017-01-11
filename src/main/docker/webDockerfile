@@ -1,7 +1,7 @@
 FROM java:8
 VOLUME /tmp
 
-RUN curl -o app.jar http://192.168.136.130:8081/artifactory/libs-release-local/org/springframework/samples/service/service/microservice-demo/1.1.0.RELEASE/microservice-demo-1.1.0.RELEASE.jar
+RUN curl -o app.jar http://192.168.136.130:8081/artifactory/libs-release-local/microservice-demo-1.1.0.RELEASE.jar
 
 #ADD microservice-demo-1.1.0.RELEASE.jar app.jar
 
