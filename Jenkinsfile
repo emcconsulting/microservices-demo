@@ -13,7 +13,7 @@ node() {
         def uploadSpec = """{
         "files": [
         {
-          "pattern": "microservice-demo-1.1.0.RELEASE.jar.war",
+          "pattern": "microservice-demo-1.1.0.RELEASE.jar",
           "target": "libs-release-local"
         }
         ]
