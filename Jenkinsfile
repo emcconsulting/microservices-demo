@@ -40,6 +40,12 @@ node() {
 	    //sh "sudo docker push emcdevops/accounts:pac"
 		//sh "sudo docker push emcdevops/registration:pac"
 		sh "sudo docker push emcdevops/web:mkub"
+	   
+	stage 'Docker Compose'
+	   sh "cd /var/lib/jenkins/workspace/Microservices-kube-build-job/src/main/docker"
+	
+	   sh "docker-compose up -d" 
+	
 		
 	   stage 'Kube Deployment'
 	     sh 'sudo kubectl rolling-update web-deployment --image=emcdevops/web:mkub'
