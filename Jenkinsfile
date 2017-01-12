@@ -14,7 +14,7 @@ node() {
         "files": [
         {
           "pattern": "microservice-demo-1.1.0.RELEASE.jar",
-          "target": "libs-release-local/org/springframework/samples/service/service/microservice-demo/1.1.0.RELEASE"
+          "target": "libs-release-local"
         }
         ]
         }"""
