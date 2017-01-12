@@ -8,7 +8,7 @@ node() {
 		sh "${mvnHome}/bin/mvn -B verify -Dmaven.test.skip=true"
 		
 	stage 'Upload to Artifactory'
-	    def server = Artifactory.newServer url: 'http://192.168.136.130:8081/artifactory/', username: 'admin', password: 'password'
+	    def server = Artifactory.newServer url: 'http://192.168.89.138:8081/artifactory/', username: 'admin', password: 'password'
 	            
         def uploadSpec = """{
         "files": [
