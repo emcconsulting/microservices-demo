@@ -28,7 +28,7 @@ node() {
 
 		//sh "sudo docker build -f src/main/docker/accountDockerfile -t emcdevops/accounts:pac ."
 	    //sh "sudo docker build -f src/main/docker/registrationDockerfile -t emcdevops/registration:pac ."
-	    sh "sudo docker build -f src/main/docker/webDockerfile -t emcdevops/web:mkub ."
+	    sh "sudo docker build -f src/main/docker/webDockerfile -t emcdevops/web:latest ."
 	    //sh "sudo docker build -f src/main/docker/accountDockerfile -t emcdevops/accounts:mkub ."
 	    //sh "sudo docker build -f src/main/docker/registrationDockerfile -t emcdevops/registration:mkub ."	
 	
@@ -41,7 +41,7 @@ node() {
 	    sh "sudo docker login --username=emcdevops --password=Welcome@123"
 	    //sh "sudo docker push emcdevops/accounts:pac"
 		//sh "sudo docker push emcdevops/registration:pac"
-		sh "sudo docker push emcdevops/web:mkub"
+		sh "sudo docker push emcdevops/web:latest"
 		//sh "sudo docker push emcdevops/accounts:mkub"
 		//sh "sudo docker push emcdevops/registration:mkub"
 	   
@@ -52,5 +52,5 @@ node() {
 	
 		
 	   stage 'Kube Deployment'
-	     sh 'sudo kubectl rolling-update web-deployment --image=emcdevops/web:mkub'
+	     sh 'sudo kubectl rolling-update web-deployment --image=emcdevops/web:latest'
 }
