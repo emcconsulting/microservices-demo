@@ -42,7 +42,7 @@ node() {
 		sh "sudo docker push emcdevops/web:mkub"
 	   
 	stage 'Docker Compose'
-	   sh "cd /var/lib/jenkins/workspace/Microservices-kube-build-job/src/main/docker"
+	   sh "cd src/main/docker"
 	
 	   sh "docker-compose up -d" 
 	
