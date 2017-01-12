@@ -29,6 +29,8 @@ node() {
 		//sh "sudo docker build -f src/main/docker/accountDockerfile -t emcdevops/accounts:pac ."
 	    //sh "sudo docker build -f src/main/docker/registrationDockerfile -t emcdevops/registration:pac ."
 	    sh "sudo docker build -f src/main/docker/webDockerfile -t emcdevops/web:mkub ."
+	    sh "sudo docker build -f src/main/docker/accountDockerfile -t emcdevops/account:mkub ."
+	    sh "sudo docker build -f src/main/docker/registrationDockerfile -t emcdevops/registration:mkub ."	
 	
         //env.PATH = "${mvnHome}/bin:${env.PATH}"
         //step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
@@ -40,6 +42,8 @@ node() {
 	    //sh "sudo docker push emcdevops/accounts:pac"
 		//sh "sudo docker push emcdevops/registration:pac"
 		sh "sudo docker push emcdevops/web:mkub"
+		sh "sudo docker push emcdevops/account:mkub"
+		sh "sudo docker push emcdevops/registration:mkub"
 	   
 	stage 'Docker Compose'
 	   sh "cd src/main/docker"
