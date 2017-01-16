@@ -1,7 +1,7 @@
 FROM java:8
 VOLUME /tmp
 
-ADD curl -o app.jar http://192.168.136.130:8081/artifactory/list/libs-release-local/microservice-demo-1.1.0.RELEASE.jar
+ADD http://192.168.136.130:8081/artifactory/list/libs-release-local/microservice-demo-1.1.0.RELEASE.jar  app.jar 
 
 
 #ADD microservice-demo-1.1.0.RELEASE.jar app.jar
