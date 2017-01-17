@@ -7,7 +7,7 @@ node() {
     stage 'Maven Build'
 		sh "${mvnHome}/bin/mvn -B verify -Dmaven.test.skip=true"
     stage ('SonarQube analysis') {
-    withSonarQubeEnv('sonar') {
+    withSonarQubeEnv('Sonar') {
       // requires SonarQube Scanner for Maven 3.2+
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
     }
