@@ -5,8 +5,8 @@ node() {
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
-		sh "mvn sonar:sonar"
 		sh "${mvnHome}/bin/mvn -B verify -Dmaven.test.skip=true"
+		mvn sonar:sonar
     //stage ('SonarQube analysis') {
     //withSonarQubeEnv('Sonar') {
       // requires SonarQube Scanner for Maven 3.2+
