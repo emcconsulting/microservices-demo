@@ -6,6 +6,7 @@ node() {
         //input 'Ready to go?'
     stage 'Maven Build'
 		sh "${mvnHome}/bin/mvn -B verify -Dmaven.test.skip=true"
+    stage 'Sonar Validation'	
 		sh "${mvnHome}/bin/mvn sonar:sonar"
     //stage ('SonarQube analysis') {
     //withSonarQubeEnv('Sonar') {
