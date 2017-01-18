@@ -11,7 +11,14 @@ node() {
       // requires SonarQube Scanner for Maven 3.2+
       //sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
     //}
-  //}		
+  //}
+	//stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    //def scannerHome = tool 'sonar';
+    //withSonarQubeEnv('sonar') {
+      //sh "${scannerHome}/bin/sonar-scanner"
+    //}
+  //}
 		
 	stage 'Upload to Artifactory'
 	    def server = Artifactory.newServer url: 'http://192.168.136.130:8081/artifactory/', username: 'admin', password: 'password'
