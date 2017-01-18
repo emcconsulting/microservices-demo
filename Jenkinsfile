@@ -1,7 +1,7 @@
 node() {
 	   
     stage 'Checkout'
-        git url: 'https://github.com/emcconsulting/microservices-demo.git', branch: 'integration-test'
+        git url: 'https://github.com/emcconsulting/microservices-demo.git', branch: 'demo-branch'
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
@@ -21,7 +21,7 @@ node() {
   //}
 		
 	stage 'Upload to Artifactory'
-	    def server = Artifactory.newServer url: 'http://192.168.136.130:8081/artifactory/', username: 'admin', password: 'password'
+	    def server = Artifactory.newServer url: 'http://192.168.118.138:8081/artifactory/', username: 'admin', password: 'password'
 	            
         def uploadSpec = """{
         "files": [
@@ -59,7 +59,7 @@ node() {
 	
 	
 	stage 'JMeter Performance Tests'
-	    sh "sudo /opt/apache-jmeter-3.0/bin/jmeter -n -JEnvURL=192.168.149.138 -JPrtNum=2222  -Jusers=7  -JsuppressJMeterOutput=false -JjmeterLogLevel=DEBUG -Jmeter.save.saveservice.output_format=xml  -t '/var/lib/jenkins/workspace/Microservices-kube-build-job/src/test/jmeter/RestService-Template.jmx' -l '/var/lib/jenkins/workspace/Microservice-jmeter-performance-test-docker-job/target/jmeter/results/jtl/'${BUILD_NUMBER}'/microservices_test_plan.jtl' "
+	    sh "sudo /opt/apache-jmeter-3.0/bin/jmeter -n -JEnvURL=192.168.118.138 -JPrtNum=2222  -Jusers=7  -JsuppressJMeterOutput=false -JjmeterLogLevel=DEBUG -Jmeter.save.saveservice.output_format=xml  -t '/var/lib/jenkins/workspace/Microservices-kube-build-job/src/test/jmeter/RestService-Template.jmx' -l '/var/lib/jenkins/workspace/Microservice-jmeter-performance-test-docker-job/target/jmeter/results/jtl/'${BUILD_NUMBER}'/microservices_test_plan.jtl' "
 	
 	stage 'Kube Deployment'
 	    sh 'sudo kubectl rolling-update web-deployment --image=emcdevops/web:mkub'
