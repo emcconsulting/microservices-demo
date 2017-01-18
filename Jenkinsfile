@@ -1,10 +1,11 @@
 node() {
 	   
     stage 'Checkout'
-        git url: 'https://github.com/emcconsulting/microservices-demo.git', branch: 'integration-test'
+        git url: 'https://github.com/emcconsulting/microservices-demo.git', branch: 'sonar-tests'
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
+		sh "mvn clean verify sonar:sonar"
 		sh "${mvnHome}/bin/mvn -B verify -Dmaven.test.skip=true"
     //stage ('SonarQube analysis') {
     //withSonarQubeEnv('Sonar') {
