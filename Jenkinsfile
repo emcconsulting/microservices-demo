@@ -5,7 +5,7 @@ node() {
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
-		sh "mvn clean verify sonar:sonar"
+		sh "mvn sonar:sonar"
 		sh "${mvnHome}/bin/mvn -B verify -Dmaven.test.skip=true"
     //stage ('SonarQube analysis') {
     //withSonarQubeEnv('Sonar') {
