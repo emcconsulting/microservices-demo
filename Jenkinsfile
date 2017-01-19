@@ -23,7 +23,7 @@ node() {
   //}
 		
 	stage 'Upload to Artifactory'
-	    def server = Artifactory.newServer url: 'http://192.168.136.130:8081/artifactory/', username: 'admin', password: 'password'
+	    def server = Artifactory.newServer url: 'http://192.168.136.131:8081/artifactory/', username: 'admin', password: 'password'
 	            
         def uploadSpec = """{
         "files": [
