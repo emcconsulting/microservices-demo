@@ -39,15 +39,15 @@ node() {
 		
 	stage 'Docker Build'
 	    sh "sudo docker build -f src/main/docker/webDockerfile -t emcdevops/web:mkub ."
-	    sh "sudo docker build -f src/main/docker/accountDockerfile -t emcdevops/accounts:mkub ."
-	    sh "sudo docker build -f src/main/docker/registrationDockerfile -t emcdevops/registration:mkub ."
+	    //sh "sudo docker build -f src/main/docker/accountDockerfile -t emcdevops/accounts:mkub ."
+	    //sh "sudo docker build -f src/main/docker/registrationDockerfile -t emcdevops/registration:mkub ."
        stage 'Docker push'
 	    sh "sudo docker login --username=emcdevops --password=Welcome@123"
 	    //sh "sudo docker push emcdevops/accounts:pac"
 		//sh "sudo docker push emcdevops/registration:pac"
 		sh "sudo docker push emcdevops/web:mkub"
-		sh "sudo docker push emcdevops/accounts:mkub"
-		sh "sudo docker push emcdevops/registration:mkub"
+		//sh "sudo docker push emcdevops/accounts:mkub"
+		//sh "sudo docker push emcdevops/registration:mkub"
 	
 	stage 'Docker Compose'
 	    //sh "cd src/main/docker"
