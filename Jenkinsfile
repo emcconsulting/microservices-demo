@@ -56,7 +56,7 @@ node() {
 	    sh "(cd src/main/docker && sudo docker-compose up -d)"
 	    
 	stage 'Integration Tests'
-	    sh "sudo docker run -v /var/lib/jenkins/workspace/microservices-demo-kube:/opt/maven -v /root/.m2:/root/.m2 -w /opt/maven --link docker_mysql_1:mysql --link docker_accounts_1:accounts --net docker_default maven:3.3-jdk-8 mvn test -Dserver.port=2222 -Dserver.host=http://accounts -Dspring.profiles.active=Test"
+	    sh "sudo docker run -v /var/lib/jenkins/workspace/microservices-demo-kube1:/opt/maven -v /root/.m2:/root/.m2 -w /opt/maven --link docker_mysql_1:mysql --link docker_accounts_1:accounts --net docker_default maven:3.3-jdk-8 mvn test -Dserver.port=2222 -Dserver.host=http://accounts -Dspring.profiles.active=Test"
 	    sh "(cd src/main/docker && sudo docker-compose stop)"
 	
 	
