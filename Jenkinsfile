@@ -1,7 +1,7 @@
 node() {
 	   
     stage 'Checkout'
-        git url: 'https://github.com/emcconsulting/microservices-demo.git', branch: 'sonar-tests'
+        git url: 'https://github.com/emcconsulting/microservices-demo.git', branch: 'unit-integration-pipelinedemo'
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
