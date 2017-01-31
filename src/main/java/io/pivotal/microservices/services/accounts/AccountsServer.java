@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Import;
 
+import io.pivotal.microservices.accounts.Account;
 import io.pivotal.microservices.accounts.AccountRepository;
 import io.pivotal.microservices.accounts.AccountsConfiguration;
 
@@ -35,6 +36,12 @@ public class AccountsServer {
 	 * @param args
 	 *            Program arguments - ignored.
 	 */
+	
+	public Account getAccountDetail(String accountNumber) {
+		Account account = accountRepository.findByNumber(accountNumber);
+		return account;
+	}
+	
 	public static void main(String[] args) {
 		// Tell server to look for accounts-server.properties or
 		// accounts-server.yml
