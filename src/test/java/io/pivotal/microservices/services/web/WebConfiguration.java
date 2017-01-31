@@ -1,7 +1,9 @@
 package io.pivotal.microservices.services.web;
 
+import org.junit.experimental.categories.Category;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @ComponentScan(useDefaultFilters = false) // Disable component scanner
+@Category(IntegrationTest.class)
 public class WebConfiguration {
 
 	public static void main(String[] args) {
