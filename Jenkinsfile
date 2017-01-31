@@ -5,7 +5,7 @@ node() {
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
-		sh "${mvnHome}/bin/mvn clean test"
+		sh "sudo ${mvnHome}/bin/mvn clean test"
     stage 'Sonar Validation'	
 		sh "${mvnHome}/bin/mvn sonar:sonar"
     //stage ('SonarQube analysis') {
