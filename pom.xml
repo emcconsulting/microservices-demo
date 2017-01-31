@@ -13,6 +13,8 @@
 	</parent>
 
 	<properties>
+		<surefire-plugin.version>2.18.1</surefire-plugin.version>
+		<failsafe-plugin.version>2.18.1</failsafe-plugin.version>
 		<!-- Stand-alone RESTFul application for testing only -->
 		<start-class>io.pivotal.microservices.services.Main</start-class>
 	</properties>
@@ -135,6 +137,39 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire-plugin.version}</version>
+				<configuration>
+					<excludedGroups>io.pivotal.microservices.accounts.IntegrationTest</excludedGroups>
+					<!-- <excludedGroups>io.pivotal.microservices.services.web</excludedGroups> -->
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>${failsafe-plugin.version}</version>
+				<configuration>
+					<groups>io.pivotal.microservices.accounts.IntegrationTest</groups>
+					<!-- <groups>io.pivotal.microservices.services.web</groups> -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>**/*.class</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>

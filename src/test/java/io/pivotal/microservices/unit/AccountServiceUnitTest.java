@@ -1,4 +1,4 @@
-package io.pivotal.microservices.accounts;
+package io.pivotal.microservices.unit;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import io.pivotal.microservices.accounts.Account;
+import io.pivotal.microservices.accounts.AccountRepository;
 import io.pivotal.microservices.services.accounts.AccountsServer;
 
 @RunWith(SpringJUnit4ClassRunner.class)
