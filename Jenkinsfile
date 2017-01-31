@@ -66,4 +66,3 @@ node() {
 	stage 'Kube Deployment'
 	    sh 'sudo kubectl rolling-update web-deployment --image=emcdevops/web:mkub'
 }
-Contact GitHub 
