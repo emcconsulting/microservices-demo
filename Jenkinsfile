@@ -5,6 +5,7 @@ node() {
         def mvnHome = tool 'M3'
         //input 'Ready to go?'
     stage 'Maven Build'
+		sh "sudo rm -rf /var/lib/jenkins/workspace/microservices-demo-kube1/target"
 		sh "sudo ${mvnHome}/bin/mvn clean test"
     stage 'Sonar Validation'	
 		sh "${mvnHome}/bin/mvn sonar:sonar"
